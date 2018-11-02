@@ -50,7 +50,7 @@ $ npm install passport-client-certificate
         return done(new UnauthorizedError('Unsupported authentication method'))
       }
 
-      const fingerprint = clientCert.fingerprint.toUpperCase()
+      const fingerprint = certificate.fingerprint.toUpperCase()
       Account.findByFingerprint(fingerprint)
         .then(function (userObj) {
           if (!userObj || userObj.is_disabled || userObj.fingerprint !== fingerprint) {
